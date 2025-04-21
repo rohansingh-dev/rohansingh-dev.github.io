@@ -126,22 +126,23 @@ mobileMenuButton?.addEventListener("click", () => {
 
 //github projects
 const repos = [
-    "rohansingh2612/rohansingh2612.github.io",
-    "rohansingh2612/Fake-News-Detection-Sysytem",
-    "rohansingh2612/r",
+    "rohansingh-dev/Fake-News-Detection-Sysytem",
+    "rohansingh-dev/Income-tax-calculator",
+    "rohansingh-dev/guess-the-number-game",
 ];
 
 const projectsContainer = document.getElementById("projects-container");
 
-
-const GITHUB_TOKEN = "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";
+// REMOVED: Hardcoded GitHub token for security reasons.
+// const GITHUB_TOKEN = "YOUR_TOKEN_HERE"; // DO NOT HARDCODE TOKENS
 
 async function fetchRepoDetails(repo) {
-    const response = await fetch(`https://api.github.com/repos/${repo}`, {
+    // Fetching public repo data - no token needed, but lower rate limits apply.
+    const response = await fetch(`https://api.github.com/repos/${repo}`/*, {
         headers: {
-            'Authorization': `Bearer ${GITHUB_TOKEN}`
+            // 'Authorization': `Bearer ${GITHUB_TOKEN}` // REMOVED
         }
-    });
+    }*/);
     if (!response.ok) {
         console.error(`Failed to fetch details for ${repo}: ${response.status}`); // Log status
         return null;
@@ -150,10 +151,11 @@ async function fetchRepoDetails(repo) {
 }
 
 async function fetchTopics(repo) {
+    // Fetching public repo topics - no token needed, but lower rate limits apply.
     const response = await fetch(`https://api.github.com/repos/${repo}/topics`, {
         headers: {
             'Accept': 'application/vnd.github.mercy-preview+json',
-            'Authorization': `Bearer ${GITHUB_TOKEN}`
+            // 'Authorization': `Bearer ${GITHUB_TOKEN}` // REMOVED
         },
     });
     if (!response.ok) {
