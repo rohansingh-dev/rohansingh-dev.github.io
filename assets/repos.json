@@ -1,0 +1,68 @@
+[
+  {
+    "name": "Dev-Automators-Telegram-Bot",
+    "full_name": "rohansingh-dev/Dev-Automators-Telegram-Bot",
+    "description": "\ud83e\udd16 Dev-Automators-Telegram-Bot is a community-driven Telegram bot that welcomes users and supports extensible commands. It offers webhook & long-polling support, making it flexible for automation. Open-source and beginner-friendly, it encourages collaboration while ensuring a professional and structured coding environment. \ud83d\ude80\u2728",
+    "language": "Python",
+    "stargazers_count": 0,
+    "forks_count": 0,
+    "watchers_count": 0,
+    "html_url": "https://github.com/rohansingh-dev/Dev-Automators-Telegram-Bot",
+    "topics": []
+  },
+  {
+    "name": "DevDocs",
+    "full_name": "rohansingh-dev/DevDocs",
+    "description": "DevDocs is a comprehensive documentation platform tailored for developers. It facilitates the creation, organization, and retrieval of technical documents, ensuring that vital information is always at your fingertips.​",
+    "language": "TypeScript",
+    "stargazers_count": 0,
+    "forks_count": 0,
+    "watchers_count": 0,
+    "html_url": "https://github.com/rohansingh-dev/DevDocs",
+    "topics": []
+  },
+  {
+    "name": "Fake-News-Detection-Sysytem",
+    "full_name": "rohansingh-dev/Fake-News-Detection-Sysytem",
+    "description": "A web-based application that uses machine learning to classify news articles as Fake or Real. Features include user authentication, prediction history, comments section, and a responsive design. Built with Flask, MySQL, and a Passive Aggressive Classifier trained on TF-IDF Vectorizer.",
+    "language": "Jupyter Notebook",
+    "stargazers_count": 0,
+    "forks_count": 0,
+    "watchers_count": 0,
+    "html_url": "https://github.com/rohansingh-dev/Fake-News-Detection-Sysytem",
+    "topics": []
+  },
+  {
+    "name": "News-Verifier",
+    "full_name": "rohansingh-dev/News-Verifier",
+    "description": "News Verifier is a machine learning-powered application designed to assess the authenticity of news articles. By analyzing textual content, it determines the likelihood of a news piece being genuine or fake, aiding users in discerning credible information.",
+    "language": "Python",
+    "stargazers_count": 0,
+    "forks_count": 0,
+    "watchers_count": 0,
+    "html_url": "https://github.com/rohansingh-dev/News-Verifier",
+    "topics": []
+  },
+  {
+    "name": "guess-the-number-game",
+    "full_name": "rohansingh-dev/guess-the-number-game",
+    "description": "A simple command-line number guessing game implemented in C. The program generates a random number between 1 and 100, and the user tries to guess it. It provides hints (\"LOWER NUMBER PLEASE\" or \"HIGHER NUMBER PLEASE\") based on the user's guesses and congratulates when the correct number is guessed.",
+    "language": "C",
+    "stargazers_count": 0,
+    "forks_count": 0,
+    "watchers_count": 0,
+    "html_url": "https://github.com/rohansingh-dev/guess-the-number-game",
+    "topics": []
+  },
+  {
+    "name": "Income-tax-calculator",
+    "full_name": "rohansingh-dev/Income-tax-calculator",
+    "description": "A simple command-line tool in C for calculating income tax based on annual income. The program prompts the user to input their annual income and calculates the tax amount based on predefined tax brackets.",
+    "language": "C",
+    "stargazers_count": 0,
+    "forks_count": 0,
+    "watchers_count": 0,
+    "html_url": "https://github.com/rohansingh-dev/Income-tax-calculator",
+    "topics": []
+  }
+]

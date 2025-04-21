@@ -125,55 +125,18 @@ mobileMenuButton?.addEventListener("click", () => {
 });
 
 //github projects
-const repos = [
-    "rohansingh-dev/Fake-News-Detection-Sysytem",
-    "rohansingh-dev/Income-tax-calculator",
-    "rohansingh-dev/guess-the-number-game",
-];
-
 const projectsContainer = document.getElementById("projects-container");
 
-// REMOVED: Hardcoded GitHub token for security reasons.
-// const GITHUB_TOKEN = "YOUR_TOKEN_HERE"; // DO NOT HARDCODE TOKENS
-
-async function fetchRepoDetails(repo) {
-    // Fetching public repo data - no token needed, but lower rate limits apply.
-    const response = await fetch(`https://api.github.com/repos/${repo}`/*, {
-        headers: {
-            // 'Authorization': `Bearer ${GITHUB_TOKEN}` // REMOVED
-        }
-    }*/);
-    if (!response.ok) {
-        console.error(`Failed to fetch details for ${repo}: ${response.status}`); // Log status
-        return null;
-    }
-    return response.json();
-}
-
-async function fetchTopics(repo) {
-    // Fetching public repo topics - no token needed, but lower rate limits apply.
-    const response = await fetch(`https://api.github.com/repos/${repo}/topics`, {
-        headers: {
-            'Accept': 'application/vnd.github.mercy-preview+json',
-            // 'Authorization': `Bearer ${GITHUB_TOKEN}` // REMOVED
-        },
-    });
-    if (!response.ok) {
-        console.error(`Failed to fetch topics for ${repo}: ${response.status}`); // Log status
-        return [];
-    }
-    const data = await response.json();
-    return data.names || [];
-}
-
 async function loadProjects() {
-    for (const repo of repos) {
-        const [repoDetails, topics] = await Promise.all([
-            fetchRepoDetails(repo),
-            fetchTopics(repo),
-        ]);
-
-        if (repoDetails) {
+    try {
+        const response = await fetch("assets/repos.json");
+        if (!response.ok) {
+            console.error("Failed to fetch local repo data:", response.status);
+            return;
+        }
+        const repos = await response.json();
+        for (const repoDetails of repos) {
+            const topics = repoDetails.topics || [];
             const projectCard = document.createElement("div");
             projectCard.className =
                 "rounded-lg border bg-card text-card-foreground h-full shadow-lg hover:shadow-xl transition-all duration-300 hover:translate-y-[-5px] dark:bg-slate-800 dark:border-slate-700";
@@ -190,13 +153,13 @@ async function loadProjects() {
                     </p>
                     <div class="flex flex-wrap gap-2 mt-2">
                         ${topics
-                    .map(
-                        (topic) => `
-                            <span class="inline-flex items-center rounded-full border text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 px-3 py-1 dark:bg-slate-700 dark:text-slate-200 dark:hover:bg-slate-600">
-                                ${topic}
-                            </span>`
-                    )
-                    .join("")}
+                            .map(
+                                (topic) => `
+                                    <span class="inline-flex items-center rounded-full border text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 px-3 py-1 dark:bg-slate-700 dark:text-slate-200 dark:hover:bg-slate-600">
+                                        ${topic}
+                                    </span>`
+                            )
+                            .join("")}
                     </div>
                 </div>
                 <div class="items-center p-6 pt-0 flex justify-between">
@@ -209,7 +172,7 @@ async function loadProjects() {
                         href="${repoDetails.html_url}"
                         target="_blank"
                         rel="noopener noreferrer"
-                        class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-9 px-3 rounded-full flex items-center gap-1 dark:border-slate-700 dark:bg-slate-800 dark:hover:bg-slate-700 dark:text-slate-300"
+                        class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-9 px-3 rounded-full flex items-center gap-1 dark:border-slate-700 dark:bg-slate-800 dark:hover:bg-slate-700 dark:text-slate-300"
                     >
                         View
                         <svg
@@ -233,6 +196,8 @@ async function loadProjects() {
             `;
             projectsContainer.appendChild(projectCard);
         }
+    } catch (error) {
+        console.error("Error loading projects:", error);
     }
 }
 
