@@ -1,0 +1,343 @@
+/* Removed @tailwind directives as CDN is used now */
+
+/* Custom styles */
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    /* Base background/text colors are now handled by Tailwind and dark mode config */
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    /* Smooth transition */
+}
+
+.hidden {
+    display: none;
+}
+
+/* Add any additional custom styles here */
+/* Example: Define primary color variable if needed for custom CSS */
+/* :root { */
+/*   --primary-color: #10b981; */
+/* } */
+
+/* Theme Definitions */
+:root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
+    --radius: 0.5rem;
+}
+
+html.dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 224.3 76.3% 48%;
+}
+
+html.blue {
+    --background: 217 33% 12%;
+    --foreground: 213 31% 95%;
+    --card: 217 33% 12%;
+    --card-foreground: 213 31% 95%;
+    --popover: 217 33% 12%;
+    --popover-foreground: 213 31% 95%;
+    --primary: 199 89% 58%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 217 33% 20%;
+    --secondary-foreground: 213 31% 95%;
+    --muted: 217 33% 20%;
+    --muted-foreground: 215 20.2% 75%;
+    --accent: 217 33% 20%;
+    --accent-foreground: 213 31% 95%;
+    --destructive: 0 62.8% 40%;
+    --destructive-foreground: 213 31% 95%;
+    --border: 217 33% 20%;
+    --input: 217 33% 20%;
+    --ring: 199 89% 58%;
+}
+
+html.green {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 142 76% 36%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 142 76% 36%;
+}
+
+html.purple {
+    --background: 224 71% 4%;
+    --foreground: 213 31% 91%;
+    --card: 224 71% 4%;
+    --card-foreground: 213 31% 91%;
+    --popover: 224 71% 4%;
+    --popover-foreground: 213 31% 91%;
+    --primary: 263 70% 50%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 224 40% 10%;
+    --secondary-foreground: 213 31% 91%;
+    --muted: 224 40% 10%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 224 40% 10%;
+    --accent-foreground: 213 31% 91%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 213 31% 91%;
+    --border: 224 40% 10%;
+    --input: 224 40% 10%;
+    --ring: 263 70% 50%;
+}
+
+html.rose {
+    --background: 20 14.3% 4.1%;
+    --foreground: 0 0% 95%;
+    --card: 20 14.3% 4.1%;
+    --card-foreground: 0 0% 95%;
+    --popover: 20 14.3% 4.1%;
+    --popover-foreground: 0 0% 95%;
+    --primary: 346.8 77.2% 49.8%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 12 6.5% 15.1%;
+    --secondary-foreground: 0 0% 95%;
+    --muted: 12 6.5% 15.1%;
+    --muted-foreground: 24 5.4% 63.9%;
+    --accent: 12 6.5% 15.1%;
+    --accent-foreground: 0 0% 95%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 95%;
+    --border: 12 6.5% 15.1%;
+    --input: 12 6.5% 15.1%;
+    --ring: 346.8 77.2% 49.8%;
+}
+
+html.orange {
+    --background: 20 14.3% 4.1%;
+    --foreground: 60 9.1% 97.8%;
+    --card: 20 14.3% 4.1%;
+    --card-foreground: 60 9.1% 97.8%;
+    --popover: 20 14.3% 4.1%;
+    --popover-foreground: 60 9.1% 97.8%;
+    --primary: 24.6 95% 53.1%;
+    --primary-foreground: 60 9.1% 97.8%;
+    --secondary: 12 6.5% 15.1%;
+    --secondary-foreground: 60 9.1% 97.8%;
+    --muted: 12 6.5% 15.1%;
+    --muted-foreground: 24 5.4% 63.9%;
+    --accent: 12 6.5% 15.1%;
+    --accent-foreground: 60 9.1% 97.8%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 60 9.1% 97.8%;
+    --border: 12 6.5% 15.1%;
+    --input: 12 6.5% 15.1%;
+    --ring: 24.6 95% 53.1%;
+}
+
+/* Example of using theme variables for other elements */
+a {
+    color: var(--primary-color);
+}
+
+.text-secondary {
+    color: var(--secondary-color);
+}
+
+.bg-primary {
+    background-color: var(--primary-color);
+}
+
+html.dark body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+html.blue body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+html.green body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+html.purple body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+html.rose body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+html.orange body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+/* Update other elements as needed */
+html.blue a {
+    color: var(--primary-color);
+}
+
+html.green a {
+    color: var(--primary-color);
+}
+
+html.purple a {
+    color: var(--primary-color);
+}
+
+html.rose a {
+    color: var(--primary-color);
+}
+
+html.orange a {
+    color: var(--primary-color);
+}
+
+/* Scrollbar base styles */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: hsl(var(--background)); /* Use background color from theme */
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: hsl(var(--primary)); /* Use primary color from theme */
+    border-radius: 6px;
+    border: 3px solid hsl(var(--background)); /* Creates padding around thumb */
+}
+
+/* Optional: Hover effect for the thumb */
+::-webkit-scrollbar-thumb:hover {
+    background-color: hsl(var(--primary) / 0.8); /* Slightly transparent primary color on hover */
+}
+
+/* Firefox scrollbar styles (optional, less customizable) */
+/* Note: Firefox scrollbar styling is limited compared to WebKit */
+html {
+    scrollbar-width: thin; /* "auto" or "thin" */
+    scrollbar-color: hsl(var(--primary)) hsl(var(--background)); /* thumb and track color */
+}
+
+/* Specific theme overrides if needed - example for dark theme */
+html.dark ::-webkit-scrollbar-track {
+    background: hsl(var(--background)); /* Dark background */
+}
+
+html.dark ::-webkit-scrollbar-thumb {
+    background-color: hsl(var(--primary)); /* Primary color for dark theme */
+    border-color: hsl(var(--background));
+}
+
+html.dark {
+    scrollbar-color: hsl(var(--primary)) hsl(var(--background));
+}
+
+/* Add similar overrides for blue, green, purple, rose, orange if their */
+/* primary/background variables result in undesirable scrollbar colors */
+/* Example for blue theme */
+html.blue ::-webkit-scrollbar-track {
+    background: hsl(var(--background));
+}
+html.blue ::-webkit-scrollbar-thumb {
+    background-color: hsl(var(--primary));
+    border-color: hsl(var(--background));
+}
+html.blue {
+    scrollbar-color: hsl(var(--primary)) hsl(var(--background));
+}
+
+/* Repeat for green, purple, rose, orange as needed */
+html.green ::-webkit-scrollbar-track {
+    background: hsl(var(--background));
+}
+html.green ::-webkit-scrollbar-thumb {
+    background-color: hsl(var(--primary));
+    border-color: hsl(var(--background));
+}
+html.green {
+    scrollbar-color: hsl(var(--primary)) hsl(var(--background));
+}
+
+html.purple ::-webkit-scrollbar-track {
+    background: hsl(var(--background));
+}
+html.purple ::-webkit-scrollbar-thumb {
+    background-color: hsl(var(--primary));
+    border-color: hsl(var(--background));
+}
+html.purple {
+    scrollbar-color: hsl(var(--primary)) hsl(var(--background));
+}
+
+html.rose ::-webkit-scrollbar-track {
+    background: hsl(var(--background));
+}
+html.rose ::-webkit-scrollbar-thumb {
+    background-color: hsl(var(--primary));
+    border-color: hsl(var(--background));
+}
+html.rose {
+    scrollbar-color: hsl(var(--primary)) hsl(var(--background));
+}
+
+html.orange ::-webkit-scrollbar-track {
+    background: hsl(var(--background));
+}
+html.orange ::-webkit-scrollbar-thumb {
+    background-color: hsl(var(--primary));
+    border-color: hsl(var(--background));
+}
+html.orange {
+    scrollbar-color: hsl(var(--primary)) hsl(var(--background));
+}
