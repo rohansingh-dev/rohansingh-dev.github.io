@@ -1,290 +1,296 @@
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="next-size-adjust" content="" />
-    <meta name="google-site-verification" content="onIsmiWVDSLjdsEFxRLwUG5PV2YaT3JdwIZf08yNcnI" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rohan Singh - Portfolio</title>
     <link rel="icon" href="assets/icon.png" type="image/x-icon">
-    <script src="assets/tailwind.js"></script>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
-        rel="stylesheet" />
-    <link href="assets/style.css" rel="stylesheet" />
+    <!-- Tailwind CSS from CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@latest/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="assets/styles.css" rel="stylesheet">
+    <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 </head>
-
 <body>
-    <main class="min-h-screen bg-background text-foreground relative dark:bg-slate-900 dark:text-slate-200">
-        <nav
-            class="fixed w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 z-40 dark:bg-slate-900/95 dark:border-slate-800">
+    <main class="min-h-screen relative transition-all duration-500">
+        <!-- Particle Background -->
+        <div id="particles-js" class="fixed inset-0 z-6"></div>
+        
+        <!-- Navigation -->
+        <nav class="fixed w-full backdrop-blur z-50 transition-all duration-300">
             <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-                <a href="/" class="text-xl font-bold"><span class="text-primary">R</span>ohan</a>
-                <div class="hidden md:flex items-center gap-6">
-                    <a href="#home" class="text-sm font-medium transition-colors hover:text-primary">Home</a><a
-                        href="#about" class="text-sm font-medium transition-colors hover:text-primary">About</a><a
-                        href="#skills" class="text-sm font-medium transition-colors hover:text-primary">Skills</a><a
-                        href="#projects" class="text-sm font-medium transition-colors hover:text-primary">Projects</a><a
-                        href="#education"
-                        class="text-sm font-medium transition-colors hover:text-primary">Education</a><a
-                        href="#contact" class="text-sm font-medium transition-colors hover:text-primary">Contact</a>
+                <a href="#" class="text-xl font-bold flex items-center group">
+                    <span class="text-primary transition-all duration-300 transform group-hover:scale-110">R</span>
+                    <span class="transition-all duration-300 group-hover:tracking-wider">ohan</span>
+                    <div class="theme-indicator ml-2 h-2 w-2 rounded-full bg-primary"></div>
+                </a>
+                <div class="hidden md:flex items-center gap-6 nav-links">
+                    <a href="#home" class="nav-link text-sm font-medium transition-all duration-300 hover:text-primary relative">Home</a>
+                    <a href="#about" class="nav-link text-sm font-medium transition-all duration-300 hover:text-primary relative">About</a>
+                    <a href="#skills" class="nav-link text-sm font-medium transition-all duration-300 hover:text-primary relative">Skills</a>
+                    <a href="#projects" class="nav-link text-sm font-medium transition-all duration-300 hover:text-primary relative">Projects</a>
+                    <a href="#education" class="nav-link text-sm font-medium transition-all duration-300 hover:text-primary relative">Education</a>
+                    <a href="#contact" class="nav-link text-sm font-medium transition-all duration-300 hover:text-primary relative">Contact</a>
                 </div>
                 <div class="flex items-center gap-2">
-                    <button
-                        class="theme-toggle inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 hover:bg-accent hover:text-accent-foreground h-10 w-10 relative dark:hover:bg-slate-800"
-                        type="button" aria-haspopup="menu" aria-expanded="false" data-state="closed">
+                    <button id="theme-toggle" class="theme-toggle inline-flex items-center justify-center rounded-md text-sm font-medium transition-all duration-300 h-10 w-10 relative" type="button" aria-haspopup="menu" aria-expanded="false" data-state="closed">
                         <i data-lucide="palette" class="h-5 w-5"></i>
                         <span class="sr-only">Toggle theme</span>
                     </button>
+                    
                     <!-- Theme Selection Dropdown -->
-                    <div id="theme-menu"
-                        class="absolute right-1 top-full mt-2 w-56 origin-top-right rounded-md bg-popover shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none hidden z-50 dark:bg-slate-800 dark:ring-white dark:ring-opacity-10">
+                    <div id="theme-menu" class="absolute right-1 top-full mt-2 w-56 origin-top-right rounded-md shadow-lg ring-1 ring-opacity-5 focus:outline-none hidden z-50 transition-all duration-300">
                         <div class="py-1" role="none">
-                            <button data-theme="light"
-                                class="theme-menu-item text-popover-foreground block w-full px-4 py-2 text-sm text-left hover:bg-accent focus:bg-accent dark:text-slate-200 dark:hover:bg-slate-700 dark:focus:bg-slate-700"
-                                role="menuitem">
-                                Light
+                            <button data-theme="light" class="theme-menu-item block w-full px-4 py-2 text-sm text-left transition-all duration-200" role="menuitem">
+                                <span class="flex items-center">
+                                    <span class="theme-dot bg-gray-100 mr-2"></span>
+                                    Light Mode
+                                </span>
                             </button>
-                            <button data-theme="dark"
-                                class="theme-menu-item text-popover-foreground block w-full px-4 py-2 text-sm text-left hover:bg-accent focus:bg-accent dark:text-slate-200 dark:hover:bg-slate-700 dark:focus:bg-slate-700"
-                                role="menuitem">
-                                Dark
+                            <button data-theme="dark" class="theme-menu-item block w-full px-4 py-2 text-sm text-left transition-all duration-200" role="menuitem">
+                                <span class="flex items-center">
+                                    <span class="theme-dot bg-gray-900 mr-2"></span>
+                                    Dark Mode
+                                </span>
                             </button>
-                            <button data-theme="blue"
-                                class="theme-menu-item text-popover-foreground block w-full px-4 py-2 text-sm text-left hover:bg-accent focus:bg-accent dark:text-slate-200 dark:hover:bg-slate-700 dark:focus:bg-slate-700"
-                                role="menuitem">
-                                Blue
+                            <button data-theme="blue" class="theme-menu-item block w-full px-4 py-2 text-sm text-left transition-all duration-200" role="menuitem">
+                                <span class="flex items-center">
+                                    <span class="theme-dot bg-blue-600 mr-2"></span>
+                                    Ocean Blue
+                                </span>
                             </button>
-                            <button data-theme="green"
-                                class="theme-menu-item text-popover-foreground block w-full px-4 py-2 text-sm text-left hover:bg-accent focus:bg-accent dark:text-slate-200 dark:hover:bg-slate-700 dark:focus:bg-slate-700"
-                                role="menuitem">
-                                Green
+                            <button data-theme="green" class="theme-menu-item block w-full px-4 py-2 text-sm text-left transition-all duration-200" role="menuitem">
+                                <span class="flex items-center">
+                                    <span class="theme-dot bg-green-600 mr-2"></span>
+                                    Forest Green
+                                </span>
                             </button>
-                            <button data-theme="purple"
-                                class="theme-menu-item text-popover-foreground block w-full px-4 py-2 text-sm text-left hover:bg-accent focus:bg-accent dark:text-slate-200 dark:hover:bg-slate-700 dark:focus:bg-slate-700"
-                                role="menuitem">
-                                Purple
+                            <button data-theme="purple" class="theme-menu-item block w-full px-4 py-2 text-sm text-left transition-all duration-200" role="menuitem">
+                                <span class="flex items-center">
+                                    <span class="theme-dot bg-purple-600 mr-2"></span>
+                                    Royal Purple
+                                </span>
                             </button>
-                            <button data-theme="rose"
-                                class="theme-menu-item text-popover-foreground block w-full px-4 py-2 text-sm text-left hover:bg-accent focus:bg-accent dark:text-slate-200 dark:hover:bg-slate-700 dark:focus:bg-slate-700"
-                                role="menuitem">
-                                Rose
+                            <button data-theme="rose" class="theme-menu-item block w-full px-4 py-2 text-sm text-left transition-all duration-200" role="menuitem">
+                                <span class="flex items-center">
+                                    <span class="theme-dot bg-pink-600 mr-2"></span>
+                                    Rose Pink
+                                </span>
                             </button>
-                            <button data-theme="orange"
-                                class="theme-menu-item text-popover-foreground block w-full px-4 py-2 text-sm text-left hover:bg-accent focus:bg-accent dark:text-slate-200 dark:hover:bg-slate-700 dark:focus:bg-slate-700"
-                                role="menuitem">
-                                Orange
+                            <button data-theme="orange" class="theme-menu-item block w-full px-4 py-2 text-sm text-left transition-all duration-200" role="menuitem">
+                                <span class="flex items-center">
+                                    <span class="theme-dot bg-red-500 mr-2"></span>
+                                    Sunset Orange
+                                </span>
+                            </button>
+                            <button data-theme="teal" class="theme-menu-item block w-full px-4 py-2 text-sm text-left transition-all duration-200" role="menuitem">
+                                <span class="flex items-center">
+                                    <span class="theme-dot bg-green-400 mr-2"></span>
+                                    Aqua Teal
+                                </span>
+                            </button>
+                            <button data-theme="amber" class="theme-menu-item block w-full px-4 py-2 text-sm text-left transition-all duration-200" role="menuitem">
+                                <span class="flex items-center">
+                                    <span class="theme-dot bg-yellow-500 mr-2"></span>
+                                    Golden Amber
+                                </span>
                             </button>
                         </div>
                     </div>
-                    <button
-                        class="mobile-menu-button inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 hover:bg-accent hover:text-accent-foreground h-10 w-10 md:hidden dark:hover:bg-slate-800">
+                    
+                    <button class="mobile-menu-button inline-flex items-center justify-center rounded-md text-sm font-medium transition-all duration-300 h-10 w-10 md:hidden">
                         <i data-lucide="menu" class="h-5 w-5"></i>
                     </button>
                 </div>
             </div>
-            <div class="mobile-menu hidden md:hidden bg-background dark:bg-slate-900 border-t dark:border-slate-800">
-                <a href="#home" class="block py-2 px-4 text-sm hover:bg-accent dark:hover:bg-slate-800">Home</a>
-                <a href="#about" class="block py-2 px-4 text-sm hover:bg-accent dark:hover:bg-slate-800">About</a>
-                <a href="#skills" class="block py-2 px-4 text-sm hover:bg-accent dark:hover:bg-slate-800">Skills</a>
-                <a href="#projects" class="block py-2 px-4 text-sm hover:bg-accent dark:hover:bg-slate-800">Projects</a>
-                <a href="#education"
-                    class="block py-2 px-4 text-sm hover:bg-accent dark:hover:bg-slate-800">Education</a>
-                <a href="#contact" class="block py-2 px-4 text-sm hover:bg-accent dark:hover:bg-slate-800">Contact</a>
+            <div class="mobile-menu hidden md:hidden border-t">
+                <a href="#home" class="block py-2 px-4 text-sm mobile-nav-link">Home</a>
+                <a href="#about" class="block py-2 px-4 text-sm mobile-nav-link">About</a>
+                <a href="#skills" class="block py-2 px-4 text-sm mobile-nav-link">Skills</a>
+                <a href="#projects" class="block py-2 px-4 text-sm mobile-nav-link">Projects</a>
+                <a href="#education" class="block py-2 px-4 text-sm mobile-nav-link">Education</a>
+                <a href="#contact" class="block py-2 px-4 text-sm mobile-nav-link">Contact</a>
             </div>
         </nav>
-        <section id="home"
-            class="min-h-screen flex flex-col justify-center items-center text-center p-4 bg-gradient-to-b from-background to-background/80 dark:from-slate-900 dark:to-slate-800">
-            <div class="space-y-4 max-w-3xl" style="opacity: 1; transform: none">
-                <h1 class="text-5xl md:text-7xl font-bold tracking-tight">
-                    Hey! I'm <span class="text-primary">Rohan</span>
+
+        <!-- Hero Section -->
+        <section id="home" class="min-h-screen flex flex-col justify-center items-center text-center p-4 relative overflow-hidden">
+            <div class="hero-shapes">
+                <div class="hero-shape shape-1"></div>
+                <div class="hero-shape shape-2"></div>
+                <div class="hero-shape shape-3"></div>
+                <div class="hero-shape shape-4"></div>
+                <div class="hero-shape shape-5"></div>
+                <div class="hero-shape shape-6"></div>
+                <div class="hero-shape shape-7"></div>
+                <div class="hero-shape shape-8"></div>
+                <div class="hero-shape shape-9"></div>
+                <div class="hero-shape shape-10"></div>
+                <div class="hero-shape shape-11"></div>
+                <div class="hero-shape shape-12"></div>
+                <div class="hero-shape shape-13"></div>
+                <div class="hero-shape shape-14"></div>
+                <div class="hero-shape shape-15"></div>
+                
+            </div>
+            
+            <div class="space-y-4 max-w-3xl relative z-10" data-aos="fade-up" data-aos-duration="1000">
+                <div class="profile-image-container mx-auto mb-6">
+                    <div class="profile-image-border">
+                        <div class="profile-image">
+                            <img src="assets/profile.jpg" alt="Rohan Singh" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+                
+                <h1 class="text-5xl md:text-7xl font-bold tracking-tight hero-title">
+                    Hey! I'm <span class="text-primary hero-highlight">Rohan Singh</span>
                 </h1>
-                <h2 class="text-xl md:text-2xl text-muted-foreground">
+                <h2 class="text-xl md:text-2xl hero-subtitle">
                     B.Tech CSE Student
                 </h2>
-                <div class="flex justify-center gap-4 py-6" style="opacity: 1">
-                    <div style="opacity: 1; transform: none">
-                        <a href="https://github.com/rohansingh-dev" target="_blank" rel="noopener noreferrer"
-                            aria-label="GitHub"
-                            class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 w-10 rounded-full dark:border-slate-700 dark:bg-slate-800 dark:hover:bg-slate-700 dark:text-slate-300"><i
-                                data-lucide="github" class="h-5 w-5"></i>
-                        </a>
-                    </div>
-                    <div style="opacity: 1; transform: none">
-                        <a href="https://twitter.com/rohansingh2612" target="_blank" rel="noopener noreferrer"
-                            aria-label="Twitter"
-                            class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 w-10 rounded-full dark:border-slate-700 dark:bg-slate-800 dark:hover:bg-slate-700 dark:text-slate-300"><i
-                                data-lucide="twitter" class="h-5 w-5"></i>
-                        </a>
-                    </div>
-                    <div style="opacity: 1; transform: none">
-                        <a href="https://www.instagram.com/rohan.singh_26" target="_blank" rel="noopener noreferrer"
-                            aria-label="Instagram"
-                            class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 w-10 rounded-full dark:border-slate-700 dark:bg-slate-800 dark:hover:bg-slate-700 dark:text-slate-300"><i
-                                data-lucide="instagram" class="h-5 w-5"></i>
-                        </a>
-                    </div>
-                    <div style="opacity: 1; transform: none">
-                        <a href="https://linkedin.com/in/rohansingh2612" target="_blank" rel="noopener noreferrer"
-                            aria-label="LinkedIn"
-                            class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 w-10 rounded-full dark:border-slate-700 dark:bg-slate-800 dark:hover:bg-slate-700 dark:text-slate-300"><i
-                                data-lucide="linkedin" class="h-5 w-5"></i>
-                        </a>
-                    </div>
+                <div class="flex justify-center gap-4 py-6 social-icons" data-aos="fade-up" data-aos-delay="200">
+                    <a href="https://github.com/rohansingh-dev" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="social-icon">
+                        <i data-lucide="github" class="h-5 w-5"></i>
+                    </a>
+                    <a href="https://twitter.com/rohansingh2612" target="_blank" rel="noopener noreferrer" aria-label="Twitter" class="social-icon">
+                        <i data-lucide="twitter" class="h-5 w-5"></i>
+                    </a>
+                    <a href="https://www.instagram.com/rohan.singh_26" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="social-icon">
+                        <i data-lucide="instagram" class="h-5 w-5"></i>
+                    </a>
+                    <a href="https://linkedin.com/in/rohansingh2612" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="social-icon">
+                        <i data-lucide="linkedin" class="h-5 w-5"></i>
+                    </a>
                 </div>
-                <div style="opacity: 1">
-                    <a href="assets/resume.pdf" target="_blank"
-                        class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 bg-primary text-primary-foreground hover:bg-primary/90 h-11 mt-8 rounded-full px-6 flex items-center gap-2"><i
-                            data-lucide="download" class="h-4 w-4"></i> Download Resume</a>
+                <div data-aos="fade-up" data-aos-delay="400">
+                    <a href="assets/resume.pdf" target="_blank" class="resume-button">
+                        <span class="resume-button-text">Download Resume</span>
+                        <i data-lucide="download" class="h-4 w-4 ml-2"></i>
+                    </a>
                 </div>
             </div>
-            <div class="absolute bottom-8 animate-bounce" style="opacity: 1">
-                <a href="#about" aria-label="Scroll down"><i data-lucide="chevron-down" class="h-6 w-6"></i>
+            
+            <div class="absolute bottom-8 scroll-indicator" data-aos="fade-up" data-aos-delay="600">
+                <a href="#about" aria-label="Scroll down" class="scroll-down-link">
+                    <i data-lucide="chevron-down" class="h-6 w-6"></i>
                 </a>
             </div>
         </section>
-        <section id="about" class="py-24 bg-muted/30 dark:bg-slate-800/30">
+
+        <!-- About Section -->
+        <section id="about" class="py-24 section-container">
             <div class="container mx-auto px-4">
-                <div style="opacity: 1; transform: none">
-                    <h2 class="text-3xl font-bold text-center mb-4">About Me</h2>
-                    <div class="w-20 h-1 bg-primary mx-auto mb-12 rounded-full"></div>
-                    <div class="max-w-3xl mx-auto">
-                        <p class="text-lg leading-relaxed mb-6">
-                            Passionate Computer Science Engineering student with a focus on
-                            web development and software engineering. I enjoy building
-                            applications and exploring new technologies.
-                        </p>
-                        <p class="text-lg leading-relaxed">
-                            I am currently pursuing my B.Tech in Computer Science
-                            Engineering and am passionate about creating efficient,
-                            user-friendly applications. I enjoy working on web development
-                            projects and am constantly learning new technologies to improve
-                            my skills.
-                        </p>
+                <div data-aos="fade-up">
+                    <h2 class="section-title">About Me</h2>
+                    <div class="section-divider"></div>
+                    
+                    <div class="max-w-3xl mx-auto about-content">
+                        <div class="about-card">
+                            <p class="text-lg leading-relaxed mb-6">
+                                Passionate Computer Science Engineering student with a focus on
+                                web development and software engineering. I enjoy building
+                                applications and exploring new technologies.
+                            </p>
+                            <p class="text-lg leading-relaxed">
+                                I am currently pursuing my B.Tech in Computer Science
+                                Engineering and am passionate about creating efficient,
+                                user-friendly applications. I enjoy working on web development
+                                projects and am constantly learning new technologies to improve
+                                my skills.
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
-        <section id="skills" class="py-24 dark:bg-slate-900">
+
+        <!-- Skills Section -->
+        <section id="skills" class="py-24 section-container">
             <div class="container mx-auto px-4">
-                <div style="opacity: 1; transform: none">
-                    <h2 class="text-3xl font-bold text-center mb-4">Skills</h2>
-                    <div class="w-20 h-1 bg-primary mx-auto mb-12 rounded-full"></div>
+                <div data-aos="fade-up">
+                    <h2 class="section-title">Skills</h2>
+                    <div class="section-divider"></div>
+                    
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                        <div style="opacity: 1; transform: none">
-                            <div class="rounded-lg border bg-card text-card-foreground h-full border-t-4 border-t-primary shadow-lg hover:shadow-xl transition-shadow dark:bg-slate-800 dark:border-slate-700 dark:border-t-primary"
-                                data-v0-t="card">
-                                <div class="flex flex-col space-y-1.5 p-6">
-                                    <h3 class="text-2xl font-semibold leading-none tracking-tight">
-                                        Programming Languages
-                                    </h3>
+                        <div class="skill-card" data-aos="flip-left" data-aos-delay="100">
+                            <div class="skill-card-header">
+                                <h3 class="skill-card-title">
+                                    Programming Languages
+                                </h3>
+                                <div class="skill-card-icon">
+                                    <i data-lucide="terminal" class="h-6 w-6"></i>
                                 </div>
-                                <div class="p-6 pt-0">
-                                    <div class="flex flex-wrap gap-2">
-                                        <div class="inline-flex items-center rounded-full border text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 px-3 py-1 dark:bg-slate-700 dark:text-slate-200 dark:hover:bg-slate-600"
-                                            data-v0-t="badge">
-                                            Python
-                                        </div>
-                                        <div class="inline-flex items-center rounded-full border text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 px-3 py-1 dark:bg-slate-700 dark:text-slate-200 dark:hover:bg-slate-600"
-                                            data-v0-t="badge">
-                                            C++
-                                        </div>
-                                        <div class="inline-flex items-center rounded-full border text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 px-3 py-1 dark:bg-slate-700 dark:text-slate-200 dark:hover:bg-slate-600"
-                                            data-v0-t="badge">
-                                            HTML/CSS
-                                        </div>
-                                    </div>
+                            </div>
+                            <div class="skill-card-content">
+                                <div class="flex flex-wrap gap-2">
+                                    <div class="skill-badge">Python</div>
+                                    <div class="skill-badge">C++</div>
+                                    <div class="skill-badge">HTML/CSS</div>
+                                    <div class="skill-badge">JavaScript</div>
                                 </div>
                             </div>
                         </div>
-                        <div style="opacity: 1; transform: none">
-                            <div class="rounded-lg border bg-card text-card-foreground h-full border-t-4 border-t-primary shadow-lg hover:shadow-xl transition-shadow dark:bg-slate-800 dark:border-slate-700 dark:border-t-primary"
-                                data-v0-t="card">
-                                <div class="flex flex-col space-y-1.5 p-6">
-                                    <h3 class="text-2xl font-semibold leading-none tracking-tight">
-                                        Frameworks &amp; Libraries
-                                    </h3>
+                        
+                        <div class="skill-card" data-aos="flip-right" data-aos-delay="200">
+                            <div class="skill-card-header">
+                                <h3 class="skill-card-title">
+                                    Frameworks &amp; Libraries
+                                </h3>
+                                <div class="skill-card-icon">
+                                    <i data-lucide="grid" class="h-6 w-6"></i>
                                 </div>
-                                <div class="p-6 pt-0">
-                                    <div class="flex flex-wrap gap-2">
-                                        <div class="inline-flex items-center rounded-full border text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 px-3 py-1 dark:bg-slate-700 dark:text-slate-200 dark:hover:bg-slate-600"
-                                            data-v0-t="badge">
-                                            React
-                                        </div>
-                                        <div class="inline-flex items-center rounded-full border text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 px-3 py-1 dark:bg-slate-700 dark:text-slate-200 dark:hover:bg-slate-600"
-                                            data-v0-t="badge">
-                                            Flask
-                                        </div>
-                                        <div class="inline-flex items-center rounded-full border text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 px-3 py-1 dark:bg-slate-700 dark:text-slate-200 dark:hover:bg-slate-600"
-                                            data-v0-t="badge">
-                                            Tailwind CSS
-                                        </div>
-                                    </div>
+                            </div>
+                            <div class="skill-card-content">
+                                <div class="flex flex-wrap gap-2">
+                                    <div class="skill-badge">React</div>
+                                    <div class="skill-badge">Flask</div>
+                                    <div class="skill-badge">Tailwind CSS</div>
                                 </div>
                             </div>
                         </div>
-                        <div style="opacity: 1; transform: none">
-                            <div class="rounded-lg border bg-card text-card-foreground h-full border-t-4 border-t-primary shadow-lg hover:shadow-xl transition-shadow dark:bg-slate-800 dark:border-slate-700 dark:border-t-primary"
-                                data-v0-t="card">
-                                <div class="flex flex-col space-y-1.5 p-6">
-                                    <h3 class="text-2xl font-semibold leading-none tracking-tight">
-                                        Tools &amp; Technologies
-                                    </h3>
+                        
+                        <div class="skill-card" data-aos="flip-left" data-aos-delay="300">
+                            <div class="skill-card-header">
+                                <h3 class="skill-card-title">
+                                    Tools &amp; Technologies
+                                </h3>
+                                <div class="skill-card-icon">
+                                    <i data-lucide="settings" class="h-6 w-6"></i>
                                 </div>
-                                <div class="p-6 pt-0">
-                                    <div class="flex flex-wrap gap-2">
-                                        <div class="inline-flex items-center rounded-full border text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 px-3 py-1 dark:bg-slate-700 dark:text-slate-200 dark:hover:bg-slate-600"
-                                            data-v0-t="badge">
-                                            Git
-                                        </div>
-                                        <div class="inline-flex items-center rounded-full border text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 px-3 py-1 dark:bg-slate-700 dark:text-slate-200 dark:hover:bg-slate-600"
-                                            data-v0-t="badge">
-                                            GitHub
-                                        </div>
-                                        <div class="inline-flex items-center rounded-full border text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 px-3 py-1 dark:bg-slate-700 dark:text-slate-200 dark:hover:bg-slate-600"
-                                            data-v0-t="badge">
-                                            VS Code
-                                        </div>
-                                        <div class="inline-flex items-center rounded-full border text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 px-3 py-1 dark:bg-slate-700 dark:text-slate-200 dark:hover:bg-slate-600"
-                                            data-v0-t="badge">
-                                            Figma
-                                        </div>
-                                        <div class="inline-flex items-center rounded-full border text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 px-3 py-1 dark:bg-slate-700 dark:text-slate-200 dark:hover:bg-slate-600"
-                                            data-v0-t="badge">
-                                            Canva
-                                        </div>
-                                    </div>
+                            </div>
+                            <div class="skill-card-content">
+                                <div class="flex flex-wrap gap-2">
+                                    <div class="skill-badge">Git</div>
+                                    <div class="skill-badge">GitHub</div>
+                                    <div class="skill-badge">VS Code</div>
+                                    <div class="skill-badge">Figma</div>
+                                    <div class="skill-badge">Canva</div>
                                 </div>
                             </div>
                         </div>
-                        <div style="opacity: 1; transform: none">
-                            <div class="rounded-lg border bg-card text-card-foreground h-full border-t-4 border-t-primary shadow-lg hover:shadow-xl transition-shadow dark:bg-slate-800 dark:border-slate-700 dark:border-t-primary"
-                                data-v0-t="card">
-                                <div class="flex flex-col space-y-1.5 p-6">
-                                    <h3 class="text-2xl font-semibold leading-none tracking-tight">
-                                        Soft Skills
-                                    </h3>
+                        
+                        <div class="skill-card" data-aos="flip-right" data-aos-delay="400">
+                            <div class="skill-card-header">
+                                <h3 class="skill-card-title">
+                                    Soft Skills
+                                </h3>
+                                <div class="skill-card-icon">
+                                    <i data-lucide="users" class="h-6 w-6"></i>
                                 </div>
-                                <div class="p-6 pt-0">
-                                    <div class="flex flex-wrap gap-2">
-                                        <div class="inline-flex items-center rounded-full border text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 px-3 py-1 dark:bg-slate-700 dark:text-slate-200 dark:hover:bg-slate-600"
-                                            data-v0-t="badge">
-                                            Problem Solving
-                                        </div>
-                                        <div class="inline-flex items-center rounded-full border text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 px-3 py-1 dark:bg-slate-700 dark:text-slate-200 dark:hover:bg-slate-600"
-                                            data-v0-t="badge">
-                                            Team Collaboration
-                                        </div>
-                                        <div class="inline-flex items-center rounded-full border text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 px-3 py-1 dark:bg-slate-700 dark:text-slate-200 dark:hover:bg-slate-600"
-                                            data-v0-t="badge">
-                                            Communication
-                                        </div>
-                                        <div class="inline-flex items-center rounded-full border text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 px-3 py-1 dark:bg-slate-700 dark:text-slate-200 dark:hover:bg-slate-600"
-                                            data-v0-t="badge">
-                                            Time Management
-                                        </div>
-                                    </div>
+                            </div>
+                            <div class="skill-card-content">
+                                <div class="flex flex-wrap gap-2">
+                                    <div class="skill-badge">Problem Solving</div>
+                                    <div class="skill-badge">Team Collaboration</div>
+                                    <div class="skill-badge">Communication</div>
+                                    <div class="skill-badge">Time Management</div>
                                 </div>
                             </div>
                         </div>
@@ -292,192 +298,205 @@
                 </div>
             </div>
         </section>
-        <section id="projects" class="py-24 bg-muted/30 dark:bg-slate-800/30">
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-24 section-container">
             <div class="container mx-auto px-4">
-                <div style="opacity: 1; transform: none">
-                    <h2 class="text-3xl font-bold text-center mb-4">Projects</h2>
-                    <div class="w-20 h-1 bg-primary mx-auto mb-12 rounded-full"></div>
-                    <div id="projects-container"
-                        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+                <div data-aos="fade-up">
+                    <h2 class="section-title">Projects</h2>
+                    <div class="section-divider"></div>
+                    
+                    <div id="projects-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
                         <!-- Projects will be dynamically loaded here -->
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="education" class="py-24 dark:bg-slate-900">
+        <!-- Education Section -->
+        <section id="education" class="py-24 section-container">
             <div class="container mx-auto px-4">
-                <div style="opacity: 1; transform: none">
-                    <h2 class="text-3xl font-bold text-center mb-4">Education</h2>
-                    <div class="w-20 h-1 bg-primary mx-auto mb-12 rounded-full"></div>
-                    <div class="space-y-8 max-w-3xl mx-auto">
-                        <div style="opacity: 1; transform: none">
-                            <div class="rounded-lg border bg-card text-card-foreground border-l-4 border-l-primary shadow-lg dark:bg-slate-800 dark:border-slate-700 dark:border-l-primary"
-                                data-v0-t="card">
-                                <div class="flex flex-col space-y-1.5 p-6">
-                                    <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-2">
-                                        <div>
-                                            <h3 class="text-2xl font-semibold leading-none tracking-tight">
-                                                B.Tech in Computer Science (AI & ML Specialization)
-                                            </h3>
-                                            <p class="text-sm text-muted-foreground dark:text-slate-400">
-                                                Dronacharya College of Engineering
-                                            </p>
-                                        </div>
-                                        <div class="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 md:self-start dark:bg-slate-700 dark:text-slate-200 dark:hover:bg-slate-600"
-                                            data-v0-t="badge">
-                                             2024 - 2028
-                                        </div>
+                <div data-aos="fade-up">
+                    <h2 class="section-title">Education</h2>
+                    <div class="section-divider"></div>
+                    
+                    <div class="education-timeline max-w-3xl mx-auto">
+                        <div class="education-item" data-aos="fade-right" data-aos-delay="100">
+                            <div class="education-card">
+                                <div class="education-card-header">
+                                    <div>
+                                        <h3 class="education-title">
+                                            B.Tech in Computer Science (AI & ML Specialization)
+                                        </h3>
+                                        <p class="education-subtitle">
+                                            Dronacharya College of Engineering
+                                        </p>
+                                    </div>
+                                    <div class="education-year">
+                                        2024 - 2028
                                     </div>
                                 </div>
-                                <div class="p-6 pt-0">
-                                    <p class="dark:text-slate-300">
+                                <div class="education-card-content">
+                                    <p>
                                         Pursuing a Bachelor's degree with a specialization in Artificial Intelligence and Machine Learning.
                                     </p>
                                 </div>
                             </div>
                         </div>
-                        <div style="opacity: 1; transform: none">
-                            <div class="rounded-lg border bg-card text-card-foreground border-l-4 border-l-primary shadow-lg dark:bg-slate-800 dark:border-slate-700 dark:border-l-primary"
-                                data-v0-t="card">
-                                <div class="flex flex-col space-y-1.5 p-6">
-                                    <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-2">
-                                        <div>
-                                            <h3 class="text-2xl font-semibold leading-none tracking-tight">
-                                                12th Grade, PCM
-                                            </h3>
-                                            <p class="text-sm text-muted-foreground dark:text-slate-400">
-                                                M D Senior Secondary School
-                                            </p>
-                                        </div>
-                                        <div class="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 md:self-start dark:bg-slate-700 dark:text-slate-200 dark:hover:bg-slate-600"
-                                            data-v0-t="badge">
-                                            2023 - 2024
-                                        </div>
+                        
+                        <div class="education-item" data-aos="fade-right" data-aos-delay="200">
+                            <div class="education-card">
+                                <div class="education-card-header">
+                                    <div>
+                                        <h3 class="education-title">
+                                            12th Grade, PCM
+                                        </h3>
+                                        <p class="education-subtitle">
+                                            M D Senior Secondary School
+                                        </p>
+                                    </div>
+                                    <div class="education-year">
+                                        2023 - 2024
                                     </div>
                                 </div>
-                                <div class="p-6 pt-0">
-                                    <p class="dark:text-slate-300">
+                                <div class="education-card-content">
+                                    <p>
                                         Completed higher secondary education with focus on Physics, Chemistry, and Mathematics.
                                     </p>
                                 </div>
                             </div>
                         </div>
-                        <div style="opacity: 1; transform: none">
-                            <div class="rounded-lg border bg-card text-card-foreground border-l-4 border-l-primary shadow-lg dark:bg-slate-800 dark:border-slate-700 dark:border-l-primary"
-                                data-v0-t="card">
-                                <div class="flex flex-col space-y-1.5 p-6">
-                                    <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-2">
-                                        <div>
-                                            <h3 class="text-2xl font-semibold leading-none tracking-tight">
-                                                10th Grade
-                                            </h3>
-                                            <p class="text-sm text-muted-foreground dark:text-slate-400">
-                                                Royal Public Sr. Sec School
-                                            </p>
-                                        </div>
-                                        <div class="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 md:self-start dark:bg-slate-700 dark:text-slate-200 dark:hover:bg-slate-600"
-                                            data-v0-t="badge">
-                                            2021 - 2022
-                                        </div>
-                                    </div>
-                                    <div class="p-6 pt-0">
-                                        <p class="dark:text-slate-300">
-                                            Completed secondary education with a focus on Science and Mathematics.
+                        
+                        <div class="education-item" data-aos="fade-right" data-aos-delay="300">
+                            <div class="education-card">
+                                <div class="education-card-header">
+                                    <div>
+                                        <h3 class="education-title">
+                                            10th Grade
+                                        </h3>
+                                        <p class="education-subtitle">
+                                            Royal Public Sr. Sec School
                                         </p>
                                     </div>
+                                    <div class="education-year">
+                                        2021 - 2022
+                                    </div>
+                                </div>
+                                <div class="education-card-content">
+                                    <p>
+                                        Completed secondary education with a focus on Science and Mathematics.
+                                    </p>
                                 </div>
                             </div>
-                        </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        <section id="contact" class="py-24 bg-muted/30 dark:bg-slate-800/30">
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-24 section-container">
             <div class="container mx-auto px-4">
-                <div style="opacity: 1; transform: none">
-                    <h2 class="text-3xl font-bold text-center mb-4">Contact Me</h2>
-                    <div class="w-20 h-1 bg-primary mx-auto mb-12 rounded-full"></div>
-                    <div class="rounded-lg border bg-card text-card-foreground max-w-md mx-auto shadow-lg dark:bg-slate-800 dark:border-slate-700"
-                        data-v0-t="card">
-                        <div class="flex flex-col space-y-1.5 p-6">
-                            <h3 class="text-2xl font-semibold leading-none tracking-tight">
-                                Get In Touch
-                            </h3>
-                            <p class="text-sm text-muted-foreground dark:text-slate-400">
-                                Feel free to reach out for collaborations or just a chat!
-                            </p>
-                        </div>
-                        <div class="p-6 pt-0 space-y-4">
-                            <div class="flex items-center gap-3" style="transform: none">
-                                <div class="bg-primary/10 p-2 rounded-full text-primary dark:bg-primary/20">
-                                    <i data-lucide="github" class="h-5 w-5"></i>
-                                </div>
-                                <a href="https://github.com/rohansingh-dev" target="_blank" rel="noopener noreferrer"
-                                    class="hover:text-primary transition-colors dark:text-slate-300 dark:hover:text-primary">GitHub</a>
+                <div data-aos="fade-up">
+                    <h2 class="section-title">Contact Me</h2>
+                    <div class="section-divider"></div>
+                    
+                    <div class="contact-container max-w-md mx-auto">
+                        <div class="contact-card">
+                            <div class="contact-card-header">
+                                <h3 class="contact-title">
+                                    Get In Touch
+                                </h3>
+                                <p class="contact-subtitle">
+                                    Feel free to reach out for collaborations or just a chat!
+                                </p>
                             </div>
-                            <div class="flex items-center gap-3" style="transform: none">
-                                <div class="bg-primary/10 p-2 rounded-full text-primary dark:bg-primary/20">
-                                    <i data-lucide="twitter" class="h-5 w-5"></i>
+                            
+                            <div class="contact-card-content">
+                                <div class="contact-links">
+                                    <a href="https://github.com/rohansingh-dev" target="_blank" rel="noopener noreferrer" class="contact-link" data-aos="fade-right" data-aos-delay="100">
+                                        <div class="contact-icon">
+                                            <i data-lucide="github" class="h-5 w-5"></i>
+                                        </div>
+                                        <span>GitHub</span>
+                                    </a>
+                                    
+                                    <a href="https://twitter.com/rohansingh2612" target="_blank" rel="noopener noreferrer" class="contact-link" data-aos="fade-right" data-aos-delay="200">
+                                        <div class="contact-icon">
+                                            <i data-lucide="twitter" class="h-5 w-5"></i>
+                                        </div>
+                                        <span>Twitter</span>
+                                    </a>
+                                    
+                                    <a href="https://www.instagram.com/rohan.singh_26" target="_blank" rel="noopener noreferrer" class="contact-link" data-aos="fade-right" data-aos-delay="300">
+                                        <div class="contact-icon">
+                                            <i data-lucide="instagram" class="h-5 w-5"></i>
+                                        </div>
+                                        <span>Instagram</span>
+                                    </a>
+                                    
+                                    <a href="https://linkedin.com/in/rohansingh2612" target="_blank" rel="noopener noreferrer" class="contact-link" data-aos="fade-right" data-aos-delay="400">
+                                        <div class="contact-icon">
+                                            <i data-lucide="linkedin" class="h-5 w-5"></i>
+                                        </div>
+                                        <span>LinkedIn</span>
+                                    </a>
                                 </div>
-                                <a href="https://twitter.com/rohansingh2612" target="_blank" rel="noopener noreferrer"
-                                    class="hover:text-primary transition-colors dark:text-slate-300 dark:hover:text-primary">Twitter</a>
-                            </div>
-                            <div class="flex items-center gap-3" style="transform: none">
-                                <div class="bg-primary/10 p-2 rounded-full text-primary dark:bg-primary/20">
-                                    <i data-lucide="instagram" class="h-5 w-5"></i>
+                                
+                                <div class="contact-action" data-aos="zoom-in" data-aos-delay="500">
+                                    <a href="mailto:rohansingh.techie@gmail.com" class="contact-button">
+                                        <span>Send Email</span>
+                                        <i data-lucide="mail" class="h-4 w-4 ml-2"></i>
+                                    </a>
                                 </div>
-                                <a href="https://www.instagram.com/rohan.singh_26" target="_blank" rel="noopener noreferrer"
-                                    class="hover:text-primary transition-colors dark:text-slate-300 dark:hover:text-primary">Instagram</a>
                             </div>
-                            <div class="flex items-center gap-3" style="transform: none">
-                                <div class="bg-primary/10 p-2 rounded-full text-primary dark:bg-primary/20">
-                                    <i data-lucide="linkedin" class="h-5 w-5"></i>
-                                </div>
-                                <a href="https://linkedin.com/in/rohansingh2612" target="_blank"
-                                    rel="noopener noreferrer"
-                                    class="hover:text-primary transition-colors dark:text-slate-300 dark:hover:text-primary">LinkedIn</a>
-                            </div>
-                        </div>
-                        <div class="flex items-center p-6 pt-0">
-                            <a href="mailto:rohansingh.techie@gmail.com"
-                                class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 bg-primary text-primary-foreground hover:bg-primary/90 h-11 px-8 w-full rounded-full flex items-center justify-center gap-2">Send
-                                Email</a>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        <footer
-            class="border-t bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 dark:bg-slate-900/95 dark:border-slate-800">
+
+        <!-- Footer -->
+        <footer class="footer-container">
             <div class="container mx-auto px-4 py-8">
                 <div class="flex flex-col md:flex-row justify-between items-center gap-4">
-                    <p class="text-sm text-muted-foreground dark:text-slate-400">
+                    <p class="footer-copyright">
                         © 2025 Rohan Singh. All rights reserved.
                     </p>
-                    <div class="flex gap-4">
-                        <a href="https://github.com/rohansingh-dev" target="_blank" rel="noopener noreferrer"
-                            class="text-muted-foreground hover:text-primary transition-colors dark:text-slate-400 dark:hover:text-primary"
-                            aria-label="GitHub"><i data-lucide="github" class="h-5 w-5"></i></a><a
-                            href="https://twitter.com/rohansingh2612" target="_blank" rel="noopener noreferrer"
-                            class="text-muted-foreground hover:text-primary transition-colors dark:text-slate-400 dark:hover:text-primary"
-                            aria-label="Twitter"><i data-lucide="twitter" class="h-5 w-5"></i></a><a
-                            href="https://www.instagram.com/rohan.singh_26" target="_blank" rel="noopener noreferrer"
-                            class="text-muted-foreground hover:text-primary transition-colors dark:text-slate-400 dark:hover:text-primary"
-                            aria-label="Instagram"><i data-lucide="instagram" class="h-5 w-5"></i></a><a
-                            href="https://linkedin.com/in/rohansingh2612" target="_blank" rel="noopener noreferrer"
-                            class="text-muted-foreground hover:text-primary transition-colors dark:text-slate-400 dark:hover:text-primary"
-                            aria-label="LinkedIn"><i data-lucide="linkedin" class="h-5 w-5"></i></a>
+                    <div class="flex gap-4 footer-social">
+                        <a href="https://github.com/rohansingh-dev" target="_blank" rel="noopener noreferrer" class="footer-icon" aria-label="GitHub">
+                            <i data-lucide="github" class="h-5 w-5"></i>
+                        </a>
+                        <a href="https://twitter.com/rohansingh2612" target="_blank" rel="noopener noreferrer" class="footer-icon" aria-label="Twitter">
+                            <i data-lucide="twitter" class="h-5 w-5"></i>
+                        </a>
+                        <a href="https://www.instagram.com/rohan.singh_26" target="_blank" rel="noopener noreferrer" class="footer-icon" aria-label="Instagram">
+                            <i data-lucide="instagram" class="h-5 w-5"></i>
+                        </a>
+                        <a href="https://linkedin.com/in/rohansingh2612" target="_blank" rel="noopener noreferrer" class="footer-icon" aria-label="LinkedIn">
+                            <i data-lucide="linkedin" class="h-5 w-5"></i>
+                        </a>
                     </div>
                 </div>
             </div>
         </footer>
     </main>
+
+    <!-- Particles.js for background effects -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    
+    <!-- Custom Scripts -->
     <script src="assets/script.js"></script>
     <script>
+        // Initialize Lucide icons
         lucide.createIcons();
+        
+        // Initialize AOS animations
+        AOS.init({
+            once: false,
+            mirror: true,
+            duration: 800
+        });
     </script>
 </body>
-
 </html>
