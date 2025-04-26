@@ -144,7 +144,7 @@
                 <div class="profile-image-container mx-auto mb-6">
                     <div class="profile-image-border">
                         <div class="profile-image">
-                            <img src="assets/profile.jpg" alt="Rohan Singh" class="w-full h-full object-cover">
+                           <a href="#"> <img src="assets/profile.jpg" alt="Rohan Singh" class="w-full h-full object-cover"></a>
                         </div>
                     </div>
                 </div>
@@ -183,6 +183,16 @@
                 </a>
             </div>
         </section>
+
+        <!-- Modal for Profile Image -->
+        <div id="image-modal" class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center hidden z-50">
+            <div class="relative bg-white dark:bg-gray-800 rounded-lg shadow-lg p-4">
+                <button id="close-modal" class="absolute top-2 right-2 text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white">
+                    <i data-lucide="x" class="h-6 w-6"></i>
+                </button>
+                <img id="modal-image" src="" alt="Rohan Singh" class="max-w-full max-h-screen rounded-lg">
+            </div>
+        </div>
 
         <!-- About Section -->
         <section id="about" class="py-24 section-container">
@@ -496,6 +506,27 @@
             once: false,
             mirror: true,
             duration: 800
+        });
+
+        // Profile image modal functionality
+        const profileImage = document.querySelector('.profile-image img');
+        const imageModal = document.getElementById('image-modal');
+        const modalImage = document.getElementById('modal-image');
+        const closeModal = document.getElementById('close-modal');
+
+        profileImage.addEventListener('click', () => {
+            modalImage.src = profileImage.src;
+            imageModal.classList.remove('hidden');
+        });
+
+        closeModal.addEventListener('click', () => {
+            imageModal.classList.add('hidden');
+        });
+
+        imageModal.addEventListener('click', (e) => {
+            if (e.target === imageModal) {
+                imageModal.classList.add('hidden');
+            }
         });
     </script>
 </body>
