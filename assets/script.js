@@ -425,9 +425,9 @@ document.addEventListener("DOMContentLoaded", () => {
                       </div>
                       <div class="project-card-footer">
                           <div class="project-stats">
-                              <span class="project-stat">⭐ ${repoDetails.stargazers_count}</span>
-                              <span class="project-stat">🍴 ${repoDetails.forks_count}</span>
-                              <span class="project-stat">👀 ${repoDetails.watchers_count}</span>
+                              <span class="project-stat">⭐ </span>
+                              <span class="project-stat">🍴 </span>
+                              <span class="project-stat">👀 </span>
                           </div>
                           <a href="${repoDetails.html_url}" target="_blank" rel="noopener noreferrer" class="project-link">
                               View Project
